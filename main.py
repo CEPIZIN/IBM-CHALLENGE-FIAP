@@ -10,7 +10,7 @@ def validar_senha():
         validar_senha()
     return
 
-#adicionar relatorios
+# adicionar relatorios
 def adicionar_relatorio():
     validar_senha()
     while True:
@@ -32,7 +32,7 @@ def adicionar_relatorio():
             print("Resposta inválida. Por favor, digite 's' para sim ou 'n' para não.")
     return
 
-  #visualizar relatorio           
+# visualizar relatorio           
 def visualizar_relatorios():
     validar_senha()
     print("\nALERTA!")
@@ -44,6 +44,22 @@ def visualizar_relatorios():
             print(f"{i}. Data: {relatorio['data']} Hora: {relatorio['hora']} - {relatorio['conteudo']}")
     return
 
+# Função para buscar eventos
+def buscar_eventos():
+    validar_senha()
+    termo_busca = input("Digite um termo para buscar: ")
+    resultados = []
+    for relatorio in dados:
+        if termo_busca.lower() in relatorio['conteudo'].lower():
+            resultados.append(relatorio)
+
+    if not resultados:
+        print(f"Nenhum resultado encontrado para '{termo_busca}'.")
+    else:
+        print(f"Resultados encontrados para '{termo_busca}':")
+        for i, relatorio in enumerate(resultados, 1):
+            print(f"{i}. Data: {relatorio['data']} Hora: {relatorio['hora']} - {relatorio['conteudo']}")
+
 def encerrar_programa():
     print("Encerrando...")
     exit()
@@ -53,14 +69,15 @@ def encerrar_programa():
 opcoes_menu = {
     "1": adicionar_relatorio,
     "2": visualizar_relatorios,
-    "3": encerrar_programa,
+    "3": buscar_eventos,  
+    "4": encerrar_programa,
 }
-
 while True:
     print("\nSelecione uma opção:")
     print("1 - Adicionar relatórios de eventos")
     print("2 - Visualizar lista de eventos")
-    print("3 - Sair")
+    print("3 -  Buscar relatorio")
+    print("4- Sair")
 
     escolha = input("->")
     if escolha in opcoes_menu:
