@@ -1,60 +1,69 @@
-password = "548400"
-data = []
+senha = "548400"
+dados = []
 
-def validate_password(correct_password):
-    while True:
-        print("PASSWORD")
-        user_password = input("->")
-        if user_password == correct_password:
-            print("Access granted.")
-            break
-        else:
-            print("Invalid password.")
-            continue
-
-def add_report():
-    print("Add a report (start with the date of occurrence - DD/MM/YYYY):")
-    date_occurred = input("Date: ")
-    time_occurred = input("Time: ")
-    report_content = input("Report: ")
-
-    report = {
-        "date": date_occurred,
-        "time": time_occurred,
-        "content": report_content,
-    }
-
-    data.append(report)
-    print("Report added successfully.")
-
-def view_reports():
-    print("ALERT!")
-    print("This section is for viewing only")
-    if not data:
-        print("No data registered")
+def validar_senha():
+    senha_usuario = input("SENHA -> ")
+    if senha_usuario == senha:
+        print("Acesso concedido.")
     else:
-        for i, report in enumerate(data, 1):
-            print(f"{i}. Date: {report['date']} Time: {report['time']} - {report['content']}")
+        print("Senha inválida.")
+        validar_senha()
+    return
 
-def exit_program():
-    print("Exiting...")
+#adicionar relatorios
+def adicionar_relatorio():
+    validar_senha()
+    while True:
+        print("Adicionar um relatório (comece com a data de ocorrência - DD/MM/YYYY):")
+        data_ocorreu = input("Data: ")
+        hora_ocorreu = input("Hora: ")
+        conteudo_relatorio = input("Relatório: ")
+        relatorio = {
+            "data": data_ocorreu,
+            "hora": hora_ocorreu,
+            "conteudo": conteudo_relatorio,
+        }
+        dados.append(relatorio)
+        print("Relatório adicionado com sucesso.")
+        adicionar_mais = input("Deseja adicionar outro relatório? (s/n): ")
+        if adicionar_mais.lower() == 'n':
+            break
+        elif adicionar_mais.lower() != 's':
+            print("Resposta inválida. Por favor, digite 's' para sim ou 'n' para não.")
+    return
+
+  #visualizar relatorio           
+def visualizar_relatorios():
+    validar_senha()
+    print("\nALERTA!")
+    print("Esta seção é apenas para visualização")
+    if not dados:
+        print("Nenhum dado registrado")
+    else:
+        for i, relatorio in enumerate(dados, 1):
+            print(f"{i}. Data: {relatorio['data']} Hora: {relatorio['hora']} - {relatorio['conteudo']}")
+    return
+
+def encerrar_programa():
+    print("Encerrando...")
     exit()
+    return
 
-menu_options = {
-    "1": add_report,
-    "2": view_reports,
-    "3": exit_program,
+# Configuração do menu
+opcoes_menu = {
+    "1": adicionar_relatorio,
+    "2": visualizar_relatorios,
+    "3": encerrar_programa,
 }
 
-# To execute the menu choice
 while True:
-    print("\nSelect an option:")
-    print("1 - Add reports of events")
-    print("2 - View list of events")
-    print("3 - Exit")
+    print("\nSelecione uma opção:")
+    print("1 - Adicionar relatórios de eventos")
+    print("2 - Visualizar lista de eventos")
+    print("3 - Sair")
 
-    choice = input("->")
-    if choice in menu_options:
-        menu_options[choice]()
+    escolha = input("->")
+    if escolha in opcoes_menu:
+        opcoes_menu[escolha]()
     else:
-        print("Invalid option. Please type again.")
+        print("Opção inválida. Por favor, digite novamente.")
