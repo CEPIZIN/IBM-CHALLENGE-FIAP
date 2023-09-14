@@ -1,3 +1,5 @@
+from datetime import datetime
+
 senha = "548400"
 dados = []
 
@@ -10,14 +12,20 @@ def validar_senha():
         validar_senha()
     return
 
-# adicionar relatorios
+# cria relatorios
 def adicionar_relatorio():
     validar_senha()
     while True:
-        print("Adicionar um relatório (comece com a data de ocorrência - DD/MM/YYYY):")
-        data_ocorreu = input("Data: ")
-        hora_ocorreu = input("Hora: ")
+        print("Adicionar um relatório ")
+        data_ocorreu = input("Data (DD/MM/YYYY): ")
+        hora_ocorreu = input("Hora (HH:MM): ")
         conteudo_relatorio = input("Relatório: ")
+        try:
+           datetime.strptime(data_ocorreu, "%d/%m/%Y")
+           datetime.strptime(hora_ocorreu, "%H:%M")
+        except ValueError:
+            print("Formato da data ou hora inválido. Use DD/MM/YYYY e HH:MM. ")
+            continue
         relatorio = {
             "data": data_ocorreu,
             "hora": hora_ocorreu,
@@ -44,7 +52,7 @@ def visualizar_relatorios():
             print(f"{i}. Data: {relatorio['data']} Hora: {relatorio['hora']} - {relatorio['conteudo']}")
     return
 
-# Função para buscar eventos
+#buscar eventos
 def buscar_eventos():
     validar_senha()
     termo_busca = input("Digite um termo para buscar: ")

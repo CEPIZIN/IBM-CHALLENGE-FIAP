@@ -1,28 +1,27 @@
 # Event Reporting System
 
-![image](https://github.com/CEPIZIN/IBM-CHALLENGE-FIAP/assets/116749645/da418648-d810-46a2-baa1-385e246175a3)
+Este é um programa simples para manter um registro de relatórios de eventos relacionados aos sensores de água desenvolvidos. Ele oferece quatro funcionalidades principais: adicionar relatórios, visualizar lista de eventos, buscar relatórios e encerrar o programa.
 
+## Como Usar
 
-## Table of Contents
+1. **Senha de Acesso**
+   - A senha para acessar o programa é **548400**.
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Getting Started](#getting-started)
+2. **Adicionar Relatórios de Eventos**
+   - Para adicionar um novo relatório relacionado aos sensores de água desenvolvidos, siga as instruções apresentadas pelo programa. Você será solicitado a fornecer a data, hora e o conteúdo do relatório.
 
-## Introduction
+3. **Visualizar Lista de Eventos**
+   - Essa opção permite visualizar todos os relatórios registrados até o momento.
 
-The Event Reporting System is a simple command-line application that allows authorized users to add and view reports of events. It includes a basic authentication system to ensure data security. This system can be used by organizations such as Company A and Company B to maintain records of incidents and events.
+4. **Buscar Relatório**
+   - Permite buscar relatórios com base em um termo específico.
 
-## Features
+5. **Sair**
+   - Esta opção encerra o programa. Antes de sair, os dados são salvos automaticamente.
 
-- Password-protected access to the system.
-- Addition of event reports with date, time, and content.
-- Viewing a list of event reports.
-- Secure and easy-to-use interface.
+**Observações:**
 
-## Getting Started
+- Ao selecionar uma opção, siga as instruções apresentadas pelo programa.
+- A senha padrão é **548400**.
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-username/event-reporting-system.git
+**Nota Importante**: Para garantir a precisão e relevância dos relatórios, é essencial que todos os registros estejam estritamente relacionados aos sensores de água desenvolvidos. Deixe em formato .md.
